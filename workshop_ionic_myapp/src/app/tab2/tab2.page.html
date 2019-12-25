@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab Two
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let d of data" (click)='gotoDetail(d.properties.id)'>
+      <ion-icon name="logo-buffer" slot="start"></ion-icon>
+      <ion-label>
+        <h2>{{d.properties.placename}}</h2>
+        <h3>{{d.properties.placedesc}}</h3>
+        <p>lat: {{d.properties.lat}} lng: {{d.properties.lon}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

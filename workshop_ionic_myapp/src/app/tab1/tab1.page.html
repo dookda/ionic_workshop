@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab One
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="map"></div>
+  <form #myForm="ngForm" (ngSubmit)="saveData()">
+    <ion-item>
+      <ion-label position="floating">ค่าพิกัด</ion-label>
+      <ion-input value="{{latlngTxt}}" type="text" disabled="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">ชื่อสถานที่</ion-label>
+      <ion-input [(ngModel)]="dat.placename" type="text" name="placename" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>ประเภท</ion-label>
+      <ion-select interface="popover" [(ngModel)]="dat.placedesc" name="placedesc">
+        <ion-select-option value="house">บ้าน</ion-select-option>
+        <ion-select-option value="building">อาคารพานิชย์</ion-select-option>
+        <ion-select-option value="government">สถานที่ราชการ</ion-select-option>
+        <ion-select-option value="agriculture">พื้นที่เกษตรกรรม</ion-select-option>
+        <ion-select-option value="other">อื่นๆ</ion-select-option>
+        <p></p>
+        <p></p>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">วันที่เก็บข้อมูล</ion-label>
+      <ion-datetime [(ngModel)]="date" displayFormat="MM/DD/YYYY" name="date">
+      </ion-datetime>
+    </ion-item>
+
+    <p></p>
+    <img *ngIf="photo" [src]="capturedSnapURL" />
+    <p></p>
+
+    <div class="padding center">
+      <ion-button color="secondary" (click)="getPhoto()">
+        <ion-icon name="camera"></ion-icon>
+        ถ่ายภาพ
+      </ion-button>
+
+      <ion-button type="submit" color="success" [disabled]="!myForm.form.valid">
+        <ion-icon name="send"></ion-icon>
+        ส่งข้อมูล
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

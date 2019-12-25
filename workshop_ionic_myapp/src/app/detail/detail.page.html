@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <h2>{{placename}}</h2>
+  <h3>{{placedesc}}</h3>
+  <p>lat: {{lat}} lng: {{lng}}</p>
+  <hr>
+  <p></p>
+  <img *ngIf="photo" [src]="img" />
+  <p></p>
+
+</ion-content>
