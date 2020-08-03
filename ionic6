@@ -1,0 +1,6 @@
+ionic start myApp tabs --capacitor
+ng build --prod
+ionic capacitor sync ios
+ionic capacitor open ios
+
+
